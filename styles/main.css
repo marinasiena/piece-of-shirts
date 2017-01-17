@@ -1,0 +1,309 @@
+body {
+  background-image: url(".././images/marina-bg.jpg");
+  background-repeat: repeat;
+  font-family: 'Josefin Sans', sans-serif;
+  height:auto;
+}
+header {
+  background: #000;
+  margin-top: 4%;
+  padding: 10px;
+}
+header h1 {
+  color: #f5f5f5;
+  font-family: 'Cabin Sketch', cursive;
+  font-size: 2em;
+  letter-spacing: 0.1em;
+  text-align: center;
+  text-transform: uppercase;
+}
+.all-shirts {
+  overflow:hidden;
+}
+.shirts-flex {
+  align-content: space-around;
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  margin: 20px 0;
+}
+
+/*Shirt styling and flipping-----------*/
+.shirt-container {
+  background: #b7afb6;
+  border: 3px groove #b8b8b8;
+  border-radius: 10px;
+  margin: auto;
+  overflow: hidden;
+  width:351px;
+}
+.shadow {
+  box-shadow: 10px 10px 10px -8px rgba(0,0,0,0.8);
+}
+
+.shirt-flip {
+  background: #ccc;
+  border-radius: 10px 0;
+  height:360px;
+  padding:10px;
+  perspective: 1000px;
+  position: relative;
+  width:354px;
+}
+.shirt-flip img {
+  width:340px;
+}
+.shirt-front {
+  left:0;
+  position:absolute;
+  top:0;
+  transition: all .3s ease-in;
+}
+.shirt-back {
+  position:absolute;
+  top:0;
+  left:0;
+  opacity: 0;
+  transition: all .3s ease-in;
+}
+.flip-button {
+  background: #b7afb6;
+  border: 2px solid #f5f5f5;
+  border-radius: 50%;
+  box-shadow: 0 0 5px gray;
+  color:#f5f5f5;
+  display:block;
+  height:40px;
+  line-height:40px;
+  position: absolute;
+  right: 15px;
+  text-align:center;
+  top: 5px;
+  transition: all .2s ease-in-out;
+  width:40px;
+  z-index: 5;
+}
+.flip-button:hover:focus {
+	background-color:#a1869e;
+}
+.flip-button:hover:focus ~ .shirt-front{
+  opacity: 0;
+  transform: rotateY(180deg);
+}
+.flip-button:hover:focus ~ .shirt-back {
+	opacity: 1;
+  transform: rotateY(180deg);
+}
+
+/*Shirt menu---------------------------*/
+.shirt-menu {
+  color: #f5f5f5;
+}
+.shirt-menu li {
+  background: #6c646b;
+  border: 2px solid #ccc;
+  float:left;
+  height: 45px;
+  margin: 12px;
+  margin-top: 30px;
+  padding: 4px;
+  text-align: center;
+  transition: .3s ease-in;
+  width: 45px;
+  position: relative;
+}
+.shirt-menu li:hover {
+  background-color:#a1869e;
+  border-color: #f5f5f5;
+}
+
+/*.menu-zoom{}*/
+
+/*.menu-fav {}*/
+
+.menu-size span {
+  display:block;
+  height: 25px;
+  padding-top: 10px;
+  text-align: center;
+}
+.menu-size-options { /*Size submenu*/
+  bottom:247px;
+  height:204px;
+  opacity: 0;
+  right:15px;
+  transition: .2s ease-in;
+  width:64px;
+}
+.menu-size-options li {
+  border:none;
+  display: block;
+  height:70px;
+  margin: 0 auto;
+  width:70px;
+}
+.menu-size-options li:nth-child(1) { /*XL*/
+  background: #b7afb6 url("http://vallyre.com/ironyard/XL.png") no-repeat center;
+  background-size: 60px;
+  height:65px;
+  width:60px;
+}
+.menu-size-options li:nth-child(2) { /*L*/
+  background: #b7afb6 url("http://vallyre.com/ironyard/L.png") no-repeat center;
+  background-size: 50px;
+  height:55px;
+  width:60px;
+}
+.menu-size-options li:nth-child(3) { /*M*/
+  background: #b7afb6 url("http://vallyre.com/ironyard/M.png") no-repeat center;
+  background-size: 40px;
+  height:45px;
+  width:60px;
+}
+.menu-size-options li:nth-child(4) { /*S*/
+  background: #b7afb6 url("http://vallyre.com/ironyard/S.png") no-repeat center;
+  background-size: 30px;
+  height:35px;
+  width:60px;
+}
+.menu-size-options li:hover {
+  background-color:#a1869e;
+}
+.menu-size:hover > .menu-size-options {
+  opacity: 1;
+  /*transform: translateY(-315px); when I translate, the hover drops out*/
+}
+/*@keyframes size-bounce-up {
+  0% {
+    transform:translateY(100px);
+  }
+  70% {
+    opacity: 1;
+    transform:translateY(300px);
+  }
+  80% {
+    transform:translateY(-100px);
+  }
+  100% {
+    transform: translateY(10px);
+    opacity: 1;
+  }
+}*/
+
+.menu-color {}
+.menu-color span {
+  background-color: #4d97af;
+  display: block;
+  height:33px;
+}
+.menu-color-options { /*Color submenu*/
+  bottom:117px;
+  display:block;
+  height:67px;
+  opacity: 0;
+  right:15px;
+  transition: .2s ease-in;
+  width:66px;
+}
+.menu-color-options li {
+  border: 1px ridge #ccc;
+  display:inline-block;
+  height: 25px;
+  margin: 3px;
+  min-width: 5px;
+  width: 25px;
+}
+.menu-color-options li:nth-child(1) { /*purple*/
+  background: #9265ae;
+  transform-origin: top left;
+}
+.menu-color-options li:nth-child(2) { /*green*/
+  background: #92ae47;
+  transform-origin: top right;
+}
+.menu-color-options li:nth-child(3) { /*blue*/
+  background: #4d97af;
+  transform-origin: bottom left;
+}
+.menu-color-options li:nth-child(4) { /*yellow*/
+  background: #af9143;
+  transform-origin: bottom right;
+}
+.menu-color-options li:hover {
+  transform: scale(1.2);
+}
+.menu-color:hover > .menu-color-options{
+  opacity: 1
+}
+
+.menu-shop span {
+  background: #6c646b;
+  border: 1px solid #f5f5f5;
+  bottom: 40px;
+  display:block;
+  font-size: .5em;
+  margin: 1px 0;
+  opacity: 0;
+  padding: 4px 0;
+  position:absolute;
+  right:0;
+  text-align: center;
+  transition: all 3s linear;
+}
+.menu-shop:active > span {
+  opacity: 1;
+  transition: all 0s linear;
+}
+
+/*Arrowbox---------------------------*/
+.arrow-box {
+  background: #b7afb6;
+  border: 2px solid #fdfdfd;
+  position: relative;
+}
+.arrow-box:after, .arrow-box:before {
+  border: solid transparent;
+  content: " ";
+	left: 50%;
+	height: 0;
+	position: absolute;
+	pointer-events: none;
+  top: 100%;
+  width: 0;
+}
+.arrow-box:after {
+	border-color: rgba(183, 175, 182, 0);
+	border-top-color: #b7afb6;
+	border-width: 10px;
+	margin-left: -10px;
+}
+.arrow-box:before {
+	border-color: rgba(253, 253, 253, 0);
+	border-top-color: #fdfdfd;
+	border-width: 13px;
+	margin-left: -13px;
+}
+
+/* Shirt Footer----------------------------*/
+.shirt-name {
+  font-size: 1.5em;
+  float:left;
+  margin-left: 15px;
+  padding-bottom: 15px;
+}
+.shirt-price {
+  font-size: 1.8em;
+  font-weight: bold;
+  float: right;
+  margin-right: 20px;
+}
+/* Page Footer----------------------------*/
+.page-footer {
+  background: black;
+  color: #a1869e;
+  height: 52px;
+  padding-top: 20px;
+  text-align: center;
+  width:100%;
+}
